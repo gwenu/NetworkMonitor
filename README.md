@@ -1,4 +1,6 @@
 NetworkMonitor
 ==============
 
-Spring first app
+Environment:
+Gradle: v2.3
+
