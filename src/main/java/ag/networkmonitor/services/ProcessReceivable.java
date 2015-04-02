@@ -4,8 +4,9 @@ import java.util.List;
 
 import ag.networkmonitor.models.SystemProcess;
 
-public interface Receivable {
+
+public interface ProcessReceivable {
 	
-	List<SystemProcess> processList();
+	public List<SystemProcess> listProcess();
 
 }
