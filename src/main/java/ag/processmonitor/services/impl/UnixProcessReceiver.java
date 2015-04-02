@@ -1,11 +1,11 @@
-package ag.networkmonitor.services.impl;
+package ag.processmonitor.services.impl;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-import ag.networkmonitor.models.SystemProcess;
-import ag.networkmonitor.services.ProcessReceivable;
+import ag.processmonitor.models.SystemProcess;
+import ag.processmonitor.services.ProcessReceivable;
 
 public class UnixProcessReceiver implements ProcessReceivable {
 

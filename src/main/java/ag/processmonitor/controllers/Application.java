@@ -1,4 +1,4 @@
-package ag.networkmonitor.controllers;
+package ag.processmonitor.controllers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

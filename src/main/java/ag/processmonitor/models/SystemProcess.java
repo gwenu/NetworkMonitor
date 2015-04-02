@@ -1,4 +1,4 @@
-package ag.networkmonitor.models;
+package ag.processmonitor.models;
 
 import java.util.Date;
 

@@ -1,8 +1,8 @@
-package ag.networkmonitor.services;
+package ag.processmonitor.services;
 
 import java.util.List;
 
-import ag.networkmonitor.models.SystemProcess;
+import ag.processmonitor.models.SystemProcess;
 
 
 public interface ProcessReceivable {

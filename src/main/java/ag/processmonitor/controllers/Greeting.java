@@ -1,4 +1,4 @@
-package ag.networkmonitor.controllers;
+package ag.processmonitor.controllers;
 
 public class Greeting {
     private final long id;
