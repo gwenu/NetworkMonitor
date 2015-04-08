@@ -1,1 +1,1 @@
-gradle && java -jar build/libs/gs-rest-service-0.1.0.jar
+gradle build && java -jar build/libs/system-monitor-0.1.0.jar

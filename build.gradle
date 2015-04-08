@@ -3,22 +3,27 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
-apply plugin: 'maven'
+apply plugin:'application'
+mainClassName = "ag.processmonitor.Application"
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 jar {
-    baseName = 'gs-spring-boot'
+    baseName = 'system-monitor'
     version =  '0.1.0'
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+repositories {
+    mavenCentral()
+}
 
 dependencies {
     // tag::jetty[]

@@ -1,0 +1,23 @@
+### About Gradle tasks and etc.
+
+Gradle tasks: 
+
+[apply plugin: 'java']
+gradle build
+	   clean       > Deletes the build directory, removing all built files.
+       assembly    > Compiles and jars your code, but does not run the unit tests.
+       check       > Compiles and tests your code. 
+
+
+
+### Dependency configurations:
+compile		> The dependencies required to compile the production source of the project.
+runtime		> The dependencies required by the production classes at runtime. By default, also includes the compile time dependencies. 
+testCompile	> The dependencies required to compile the test source of the project. By default, also includes the compiled production classes and the compile time dependencies. 
+testRuntime	> The dependencies required to run the tests. By default, also includes the compile, runtime and test compile dependencies. 
+
+Example -> compile
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '3.6.7.Final' 
+or
+	compile 'org.hibernate:hibernate-core:3.6.7.Final'
+	
