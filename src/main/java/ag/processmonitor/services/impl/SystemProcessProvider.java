@@ -2,13 +2,19 @@ package ag.processmonitor.services.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
+
 import ag.processmonitor.models.SystemProcess;
 import ag.processmonitor.services.ProcessReceivable;
 
+@Service
 public class SystemProcessProvider {
 	
-	private ProcessReceivable processReceiver;
+	private final ProcessReceivable processReceiver;
 	
+	@Autowired
 	public SystemProcessProvider(ProcessReceivable processReceiver) {
 		this.processReceiver = processReceiver;
 	}

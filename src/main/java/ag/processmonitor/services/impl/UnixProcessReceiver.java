@@ -5,33 +5,42 @@ import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 import ag.processmonitor.models.SystemProcess;
 import ag.processmonitor.services.ProcessReceivable;
 
+@Component
 public class UnixProcessReceiver implements ProcessReceivable {
 
 	@Override
 	public List<SystemProcess> listProcess() {
+		InputStream in = null;
+		
 		try {
 		    // Execute command
 		    String command = "ps aux";
 		    Process child = Runtime.getRuntime().exec(command);
 		    
 		    // Get the input stream and read from it
-		    InputStream in = child.getInputStream();
-		    
-		    parseCommandResult(in);
+		    in = child.getInputStream();
 		} catch (IOException e) {
+			// TODO:
 		}
-		return null;
+		
+		return parseCommandResult(in);
 	}
 	
-	private void parseCommandResult(InputStream in) {
+	private List<SystemProcess> parseCommandResult(InputStream in) {
+		List<SystemProcess> processList = new ArrayList<>();
+		
 		boolean firstLine = true;
         Scanner scanner = new Scanner(in);
          
@@ -44,9 +53,11 @@ public class UnixProcessReceiver implements ProcessReceivable {
         	} 
         	
         	SystemProcess process = parseLine(scanner.next());
-        	System.out.println(process.toString());
+        	processList.add(process);
         }
+        
         scanner.close();
+        return processList;
 	}
 	
 	private SystemProcess parseLine(String line) {
