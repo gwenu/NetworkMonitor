@@ -11,7 +11,6 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import ag.processmonitor.models.SystemProcess;
