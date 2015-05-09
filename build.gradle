@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
-apply plugin:'application'
+apply plugin: 'application'
 mainClassName = "ag.processmonitor.Application"
 
 sourceCompatibility = 1.7
@@ -20,22 +20,17 @@ jar {
     baseName = 'system-monitor'
     version =  '0.1.0'
 }
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // tag::jetty[]
-    compile("org.springframework.boot:spring-boot-starter-web") {
-        exclude module: "spring-boot-starter-tomcat"
-    }
-    compile("org.springframework.boot:spring-boot-starter-jetty")
-    // end::jetty[]
-    // tag::actuator[]
+    compile("org.springframework.boot:spring-boot-starter-web") 
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    // end::actuator[]
+    compile("javax.servlet:jstl:1.2")
     
+    runtime("org.apache.tomcat.embed:tomcat-embed-jasper")
+
     testCompile("junit:junit")  
 }
 
