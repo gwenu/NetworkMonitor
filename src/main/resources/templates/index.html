@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>System Process Monitor</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="">System Process Monitor</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h3>Currently running:</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>PID</td>
+            <td>USER</td>
+            <td>CPU</td>
+            <td>MEM</td>
+            <td>VSZ</td>
+            <td>RSS</td>
+            <td>TTY</td>
+            <td>STAT</td>
+            <td>START</td>
+            <td>TIME</td>
+            <td>COMMAND</td>
+        </tr>
+        </thead>
+        <tbody th:each="item : ${processes}">
+            <tr>
+                <td th:text="${item.pid}"/>
+                <td th:text="${item.user}"/>
+                <td th:text="${item.cpu}"/>
+                <td th:text="${item.mem}"/>
+                <td th:text="${item.vsz}"/>
+                <td th:text="${item.rss}"/>
+                <td th:text="${item.tty}"/>
+                <td th:text="${item.stat}"/>
+                <td th:text="${item.start}"/>
+                <td th:text="${item.time}"/>
+                <td th:text="${item.command}"/>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

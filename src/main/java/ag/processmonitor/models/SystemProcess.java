@@ -6,10 +6,10 @@ import java.util.Date;
 
 public class SystemProcess {
 	
-	private int pid;		//Process identifier
+	private long pid;		//Process identifier
 	private String user;
 	private double cpu;		// Central processing unit
-	private double mem;
+	private double mem;     // Ratio of the process’s resident set size to the physical memory on the machine
 	private int vsz;		// Virtual Memory Size. It includes all memory that the process can access, including memory that is swapped out and memory that is from shared libraries.
 	private int rss;		// Resident Set Size and is used to show how much memory is allocated to that process and is in RAM. It does not include memory that is swapped out. 
 	private String tty; 	// Teletype Possibly -> Possibly should be Enum
@@ -18,7 +18,7 @@ public class SystemProcess {
 	private Date time;
 	private String command;
 	
-	public int getPid() {
+	public long getPid() {
 		return pid;
 	}
 
@@ -82,7 +82,7 @@ public class SystemProcess {
 	}
 	
 	public static class Builder {
-		private int pid;	
+		private long pid;
 		private String user;
 		private double cpu;	
 		private double mem;
@@ -94,7 +94,7 @@ public class SystemProcess {
 		private Date time;
 		private String command;
 		
-		public Builder pid(int pid) {
+		public Builder pid(long pid) {
 			this.pid = pid;
 			return this;
 		}

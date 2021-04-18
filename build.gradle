@@ -1,39 +1,25 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
-    }
+plugins {
+    id 'org.springframework.boot' version '2.4.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'spring-boot'
-apply plugin: 'application'
-mainClassName = "ag.processmonitor.Application"
+group = 'ag.processmonitor'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
-
-jar {
-    baseName = 'system-monitor'
-    version =  '0.1.0'
-}
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web") 
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("javax.servlet:jstl:1.2")
-    
-    runtime("org.apache.tomcat.embed:tomcat-embed-jasper")
-
-    testCompile("junit:junit")  
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+test {
+    useJUnitPlatform()
 }
+
